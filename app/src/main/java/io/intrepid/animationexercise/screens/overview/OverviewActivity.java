@@ -2,9 +2,12 @@ package io.intrepid.animationexercise.screens.overview;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -52,7 +55,12 @@ public class OverviewActivity extends BaseMvpActivity<OverviewContract.Presenter
     //TODO: complete this method
     @Override
     public void goToCatDetail(Cat cat) {
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//       transaction.replace(R.id.fragment_container, ).commit();
+        AnimationUtils.loadAnimation(catImageView.getContext(), R.anim.slide_out_right);
         startActivity(DetailActivity.getStartIntent(this, cat));
+
     }
 
     @Override
